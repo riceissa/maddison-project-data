@@ -9,6 +9,8 @@ Each `proc_*.py` script uses one CSV file to produce one SQL file.
 |Maddison 2010 GDP growth|[`proc_2010_gdp_growth.py`](proc_2010_gdp_growth.py)|`horizontal-file_02-2010-gdp-growth.csv`||[`horizontal-file_02-2010.xls`](http://www.ggdc.net/maddison/Historical_Statistics/horizontal-file_02-2010.xls)|
 |Maddison 2010 GDP|[`proc_2010_gdp.py`](proc_2010_gdp.py)|`horizontal-file_02-2010-gdp.csv`||[`horizontal-file_02-2010.xls`](http://www.ggdc.net/maddison/Historical_Statistics/horizontal-file_02-2010.xls)|
 |Maddison 2010 GDP per capita growth|[`proc_2010_percapita_gdp_growth.py`](proc_2010_percapita_gdp_growth.py)|`horizontal-file_02-2010-percapita-gdp-growth.csv`||[`horizontal-file_02-2010.xls`](http://www.ggdc.net/maddison/Historical_Statistics/horizontal-file_02-2010.xls)|
+|Maddison 2010 population|[`proc_2010_population.py`](proc_2010_population.py)|`horizontal-file_02-2010-population.csv`||[`horizontal-file_02-2010.xls`](http://www.ggdc.net/maddison/Historical_Statistics/horizontal-file_02-2010.xls)|
+|Maddison 2010 population growth|[`proc_2010_population_growth.py`](proc_2010_population_growth.py)|`horizontal-file_02-2010-population-growth.csv`||[`horizontal-file_02-2010.xls`](http://www.ggdc.net/maddison/Historical_Statistics/horizontal-file_02-2010.xls)|
 
 ## CSV files
 
