@@ -14,7 +14,7 @@ with open("horizontal-file_02-2010-percapita-gdp.csv", newline='') as f:
     first = True
 
     for row in reader:
-        for year in row:
+        for year in sorted(row):
             if year != "Region" and year and row[year].strip():
                 print("    " + ("" if first else ",") + "(" + ",".join([
                     mysql_quote(row["Region"]),  # region
