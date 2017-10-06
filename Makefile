@@ -2,7 +2,7 @@
 all: maddison-2010-gdp.sql maddison-2010-gdp-growth.sql maddison-2010-percapita-gdp.sql maddison-2010-percapita-gdp-growth.sql maddison-2010-population.sql maddison-2010-population-growth.sql maddison-2013.sql
 
 .PHONY: read
-test:
+read:
 	mysql devecondata -e "drop table if exists maddison"
 	mysql devecondata < schema.sql
 	mysql devecondata < maddison-2010-gdp.sql
