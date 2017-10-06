@@ -2,9 +2,9 @@
 
 Each `proc_*.py` script uses one CSV file to produce one SQL file.
 
-|Dataset|Script|CSV|SQL|
-|-------|------|---|---|
-|Maddison Project 2013 GDP per capita|`proc_2013.py`|`mpd_2013-01.csv`||
+|Dataset|Script|CSV|SQL|Original spreadsheet|
+|-------|------|---|---|--------------------|
+|Maddison Project 2013 GDP per capita|`proc_2013.py`|`mpd_2013-01.csv`||[`mpd_2013-01.xlsx`](http://www.ggdc.net/maddison/maddison-project/data/mpd_2013-01.xlsx)|
 
 ## CSV files
 
