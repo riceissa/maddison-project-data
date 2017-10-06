@@ -15,10 +15,18 @@ def mysql_quote(x):
     return "'{}'".format(x)
 
 
-def mysql_number(x):
+def mysql_number(x, typeconv=lambda x: x):
     if not x:
         return "NULL"
     x = x.strip()
     x = x.replace(",", "")
-    return x
+    x = x.replace("%", "")
+    return str(typeconv(x))
 
+
+def mysql_int(x):
+    return mysql_number(x, typeconv=int)
+
+
+def mysql_float(x):
+    return mysql_number(x, typeconv=float)
