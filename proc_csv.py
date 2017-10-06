@@ -33,11 +33,9 @@ with open("mpd_2013-01.csv", newline='') as f:
     first = True
 
     for row in reader:
-        for region in row:
-            print(region)
+        for region in sorted(row):
             r = region.strip()
-            if r != "Year":
-                print(r, row["Year"], row[region])
+            if r != "Year" and r and row[region]:
                 print("    " + ("" if first else ",") + "(" + ",".join([
                     mysql_quote(r),  # region
                     mysql_number(row["Year"]),  # year
