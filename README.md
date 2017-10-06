@@ -1,8 +1,10 @@
 # maddison-project-data
 
-Produce `out.sql` with:
+Each `proc_*.py` script uses one CSV file to produce one SQL file.
 
-    ./proc_csv.py > out.sql
+|Dataset|Script|CSV|SQL|
+|-------|------|---|---|
+|Maddison Project 2013 GDP per capita|`proc_2013.py`|`mpd_2013-01.csv`||
 
 ## CSV files
 
