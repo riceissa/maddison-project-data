@@ -1,12 +1,17 @@
 .PHONY: all
 all: maddison-2010-gdp.sql maddison-2010-gdp-growth.sql maddison-2010-percapita-gdp.sql maddison-2010-percapita-gdp-growth.sql maddison-2010-population.sql maddison-2010-population-growth.sql maddison-2013.sql
 
-.PHONY: test
+.PHONY: read
 test:
-	./proc_2013.py > out.sql
 	mysql devecondata -e "drop table if exists maddison"
 	mysql devecondata < schema.sql
-	mysql devecondata < out.sql
+	mysql devecondata < maddison-2010-gdp.sql
+	mysql devecondata < maddison-2010-gdp-growth.sql
+	mysql devecondata < maddison-2010-percapita-gdp.sql
+	mysql devecondata < maddison-2010-percapita-gdp-growth.sql
+	mysql devecondata < maddison-2010-population.sql
+	mysql devecondata < maddison-2010-population-growth.sql
+	mysql devecondata < maddison-2013.sql
 
 maddison-2010-gdp.sql:
 	./proc_2010_gdp.py > maddison-2010-gdp.sql
