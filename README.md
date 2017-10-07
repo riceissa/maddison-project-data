@@ -26,6 +26,11 @@ appropriate value ("Year" or "Region" was inserted).
 CC0.
 Data subject to their own copyrights, or whatever.
 
+## See also
+
+- [penn-world-table-data](https://github.com/riceissa/penn-world-table-data), a
+  similar project for the Penn World Table that uses the same database schema
+
 ## External links
 
 - https://github.com/expersso/maddison
