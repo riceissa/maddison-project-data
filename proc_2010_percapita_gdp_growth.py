@@ -5,7 +5,7 @@ import csv
 from util import *
 
 
-print("""insert into maddison(region, year, database_url,
+print("""insert into data(region, year, database_url,
          data_retrieval_method, metric, units, value, notes) values""")
 
 
