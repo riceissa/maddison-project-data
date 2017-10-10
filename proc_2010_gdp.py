@@ -22,8 +22,8 @@ with open("horizontal-file_02-2010-gdp.csv", newline='') as f:
                     mysql_quote("http://www.ggdc.net/maddison/Historical_Statistics/horizontal-file_02-2010.xls"),  # database_url
                     mysql_quote(""),  # data_retrieval_method
                     mysql_quote("GDP"),  # metric
-                    mysql_quote("Million 1990 international Geary–Khamis dollars"),  # units
-                    mysql_float(row[year]),  # value
+                    mysql_quote("1990 international dollar"),  # units
+                    mysql_float(row[year], factor=1e6),  # value
                     mysql_quote(""),  # notes
                 ]) + ")")
                 first = False
