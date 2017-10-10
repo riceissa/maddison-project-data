@@ -1,4 +1,4 @@
-insert into maddison(region, year, database_url,
+insert into data(region, year, database_url,
          data_retrieval_method, metric, units, value, notes) values
     ('Austria ',1991,'http://www.ggdc.net/maddison/Historical_Statistics/horizontal-file_02-2010.xls',NULL,'Population growth','Percent',1.23,NULL)
     ,('Austria ',1992,'http://www.ggdc.net/maddison/Historical_Statistics/horizontal-file_02-2010.xls',NULL,'Population growth','Percent',1.23,NULL)
