@@ -31,3 +31,7 @@ maddison-2010-population-growth.sql:
 
 maddison-2013.sql:
 	./proc_2013.py > maddison-2013.sql
+
+.PHONY: clean
+clean:
+	rm -f maddison-2010-gdp.sql maddison-2010-gdp-growth.sql maddison-2010-percapita-gdp.sql maddison-2010-percapita-gdp-growth.sql maddison-2010-population.sql maddison-2010-population-growth.sql maddison-2013.sql
