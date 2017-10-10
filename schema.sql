@@ -6,6 +6,6 @@ create table data (
     data_retrieval_method varchar(1000),
     metric varchar(100),
     units varchar(100),
-    value float(14,2),
+    value float(28,14),
     notes varchar(2000) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=15239276 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
