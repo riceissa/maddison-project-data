@@ -23,7 +23,7 @@ with open("horizontal-file_02-2010-population.csv", newline='') as f:
                     mysql_quote(""),  # data_retrieval_method
                     mysql_quote("Population"),  # metric
                     mysql_quote("People"),  # units
-                    mysql_int(row[year]),  # value
+                    mysql_int(row[year], factor=1000),  # value
                     mysql_quote(""),  # notes
                 ]) + ")")
                 first = False
