@@ -7,3 +7,4 @@ select count(*) from dt2;
 select count(*) from dt2 where fudge < 0.98 or fudge > 1.02;
 
 select * from dt2 where fudge < 0.98 or fudge > 1.02 order by fudge;
+
