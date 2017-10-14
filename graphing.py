@@ -18,3 +18,9 @@ gdppc_2013 = gdppc[gdppc.database_url == 'http://www.ggdc.net/maddison/maddison-
 
 # Example plot, each line plot is a country/region
 gdppc_2013.plot(legend=False, title='Maddison 2013, GDP per capita'); plt.show()
+
+# plot some select countries
+np.log(gdppc_2013[['Japan','France','Spain','USA','India','Poland']]).plot(title='Maddison 2013, GDP per capita, log plot')
+
+# compare maddison 2013 and maddison 2010 gdp per capita for Japan post-1990
+(gdppc_2013['Japan'] - gdppc_2010['Japan '])[(gdppc_2013['Japan'] - gdppc_2010['Japan ']).index > 1990].plot()
