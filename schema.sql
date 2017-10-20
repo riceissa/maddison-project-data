@@ -5,7 +5,7 @@ create table data (
     database_url varchar(200),
     data_retrieval_method varchar(1000),
     metric varchar(200),
-    units varchar(100),
+    units varchar(200),
     value float(35,14),
     notes varchar(2000) DEFAULT NULL,
     index `region`(`region`)
