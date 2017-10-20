@@ -31,6 +31,8 @@ Data subject to their own copyrights, or whatever.
 - [penn-world-table-data](https://github.com/riceissa/penn-world-table-data), a
   similar project for the Penn World Table that uses the same database schema
 - [world development indicators](https://github.com/riceissa/world-development-indicators)
+- [total-economy-database](https://github.com/riceissa/total-economy-database)
+- [fred-processing](https://github.com/riceissa/fred-processing)
 
 ## External links
 
