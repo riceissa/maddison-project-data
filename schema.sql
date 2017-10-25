@@ -9,8 +9,10 @@ create table data (
     # at specific points on the timeline and calling out what values are there;
     # of course, in reality the estimation processes take place in the same
     # timeline so could also be thought of as just pointing backwards in time).
-    # This prevents the naming collision with MySQL's "date" type.
-    odate date,
+    # This prevents the naming collision with MySQL's "date" type. The date is
+    # stored as varchar in YYYYMMDD format, which allows for storing dates
+    # before year 1000.
+    odate varchar(8),
     database_url varchar(200),
     database_version varchar(200) DEFAULT NULL,
     # This gives information about how a value was calculated.
