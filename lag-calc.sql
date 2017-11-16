@@ -18,7 +18,7 @@ select
     metric,
     (case when value > (select value from t1
             where t1.metric=data.metric and t1.database_url=data.database_url
-            limit 1)  # FIXME there shouldn't be more than one result but there is unless we limit 1 here
+            limit 1)  # FIXME there shouldn't be more than one result but there is unless we limit 1 here; when I run "select count(*),metric from t1 group by metric having count(*) > 1;" I get a bunch of WDI metrics, I think because there are a lot of repeated metrics that have different "units".
         then true
         else false end) as boolean
 from data
