@@ -1,3 +1,4 @@
+
 # Create table for India at reference year
 create temporary table t1 as
 select
