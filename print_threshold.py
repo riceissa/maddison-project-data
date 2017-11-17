@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
 
+# Print each (metric, database_url) combination on a line, with the columns as
+# years. The cell values are whether the US crosses the Indian 2005 threshold
+# or not. Fill in missing values with "NA".
+
+# "out.tsv" just contains t2 of lag-calc.mysql.
+
 years = set()
 metrics_urls = set()
 data = {}
