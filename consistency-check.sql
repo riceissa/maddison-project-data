@@ -15,7 +15,7 @@ create temporary table ct1 as select
   cast(coalesce(max(case when metric = 'GDP per capita, PPP' and units = 'constant 2011 international dollar' and database_url = 'https://data.worldbank.org/data-catalog/world-development-indicators' then value else 0 end), 0) as unsigned) as wdi_const11,
   cast(coalesce(max(case when metric = 'GDP per capita, PPP' and units = 'current international dollar' and database_url = 'https://data.worldbank.org/data-catalog/world-development-indicators' then value else 0 end), 0) as unsigned) as wdi_curr
 from data
-  where metric in ('GDP per capita','Real GDP at constant 2005 national prices' ,'Real GDP at constant 2011 national prices','Output-side real GDP at chained PPPs','GDP per capita, PPP') and units in ('1990 international dollar', '2005 international dollar','2011 international dollar','constant 2011 international dollar','current international dollar')
+  where metric in ('GDP per capita','Real GDP at constant 2005 national prices' ,'Real GDP at constant 2011 national prices','Output-side real GDP at chained PPPs','GDP per capita, PPP','Population') and units in ('1990 international dollar', '2005 international dollar','2011 international dollar','constant 2011 international dollar','current international dollar','People')
 group by region, odate;
 
 select region from ct1 where year = 2008 and gdppc_2013 = 0 and gdppc_2010 > 0;
