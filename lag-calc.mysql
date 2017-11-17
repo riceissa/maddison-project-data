@@ -72,4 +72,4 @@ from t3
 left join t4 on
     t3.metric=t4.metric and t3.shortname=t4.shortname
 left join t5 on
-    t3.metric=t5.metric and t5.shortname=t5.shortname;
+    t3.metric=t5.metric and t3.shortname=t5.shortname;
