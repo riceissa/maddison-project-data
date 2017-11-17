@@ -28,10 +28,29 @@ where
     region='United States' or region='USA' or region='US';
 
 # Get the first year the US crossed the threshold
+create temporary table t3 as
 select
-    min(odate),
+    min(odate) as odate,
     metric,
     shortname
 from t2
 where boolean=true
 group by metric,shortname;
+
+# Get the metric start date
+create temporary table t4 as
+select
+    min(odate) as odate,
+    metric,
+    shortname
+from t2
+group by metric,shortname;
+
+select
+    t3.odate,
+    t3.metric,
+    t3.shortname
+from t3
+left join t4 on
+    t3.metric=t4.metric and t3.shortname=t4.shortname
+where t3.odate > t4.odate;
