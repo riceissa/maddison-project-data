@@ -4,6 +4,7 @@ select
     odate,
     value,
     metric,
+    units,
     database_url
 from data
 where
@@ -16,10 +17,14 @@ select
     odate,
     value,
     metric,
+    units,
     database_url,
     (select shortname from datasets where datasets.url=database_url) as shortname,
     (case when value > (select value from t1
-            where t1.metric=data.metric and t1.database_url=data.database_url
+            where
+                t1.metric=data.metric
+                and t1.database_url=data.database_url
+                and t1.units=data.units
             limit 1)  # FIXME there shouldn't be more than one result but there is unless we limit 1 here; when I run "select count(*),metric from t1 group by metric having count(*) > 1;" I get a bunch of WDI metrics, I think because there are a lot of repeated metrics that have different "units".
         then true
         else false end) as boolean
@@ -33,10 +38,11 @@ select
     min(odate) as minodate,
     max(odate) as maxodate,
     metric,
+    units,
     shortname
 from t2
 where boolean=true
-group by metric,shortname;
+group by metric,units,shortname;
 
 # Get max and min odates for below threshold case
 create temporary table t4 as
@@ -44,10 +50,11 @@ select
     min(odate) as minodate,
     max(odate) as maxodate,
     metric,
+    units,
     shortname
 from t2
 where boolean=false
-group by metric,shortname;
+group by metric,units,shortname;
 
 # Get the metric start and end dates
 create temporary table t5 as
@@ -55,12 +62,14 @@ select
     min(odate) as minodate,
     max(odate) as maxodate,
     metric,
+    units,
     shortname
 from t2
-group by metric,shortname;
+group by metric,units,shortname;
 
 select
     t3.metric,
+    t3.units,
     t3.shortname,
     t3.minodate as `(min, 1)`,
     t3.maxodate as `(max, 1)`,
@@ -70,6 +79,6 @@ select
     t5.maxodate as `end`
 from t3
 left join t4 on
-    t3.metric=t4.metric and t3.shortname=t4.shortname
+    t3.metric=t4.metric and t3.units=t4.units and t3.shortname=t4.shortname
 left join t5 on
-    t3.metric=t5.metric and t3.shortname=t5.shortname;
+    t3.metric=t5.metric and t3.units=t5.units and t3.shortname=t5.shortname;
