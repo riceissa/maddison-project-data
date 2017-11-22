@@ -541,8 +541,8 @@ for k, v in REGION_MAP_.items():
 
 def region_normalized(x, region_map=REGION_MAP):
     """Normalize the region or country name x."""
-    res = region_map.get(x.lower(), "")
-    if res:
-        return res
+    k = x.lower()
+    if k in region_map and region_map[k]:
+        return region_map[k]
     else:
         return x
