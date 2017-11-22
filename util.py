@@ -54,10 +54,7 @@ def mysql_string_date(x):
     if len(x) == len("YYYY-MM-DD"):
         return mysql_quote("".join(x.split("-")))
 
-
-def region_normalized(x):
-    """Normalize the region or country name x."""
-    rmap = {
+REGION_MAP_ = {
         "(Centre-   North)           Italy": "Center-North Italy",
         "12 W. Europe": "",
         "14 small WEC": "",
@@ -537,10 +534,14 @@ def region_normalized(x):
         "Zambia": "Zambia",
         "Zimbabwe": "Zimbabwe",
     }
-    rmap2 = {}
-    for k, v in rmap.items():
-        rmap2[k.lower()] = v
-    res = rmap2.get(x.lower(), "")
+
+REGION_MAP = {}
+for k, v in REGION_MAP_.items():
+    REGION_MAP[k.lower()] = v
+
+def region_normalized(x, region_map=REGION_MAP):
+    """Normalize the region or country name x."""
+    res = region_map.get(x.lower(), "")
     if res:
         return res
     else:
