@@ -18,7 +18,7 @@ with open("mpd_2013-01.csv", newline='') as f:
             r = region.strip()
             if r != "Year" and r and row[region]:
                 print("    " + ("" if first else ",") + "(" + ",".join([
-                    mysql_quote(r),  # region
+                    mysql_quote(region_normalized(r)),  # region
                     mysql_string_date(row["Year"]),  # odate
                     mysql_quote("http://www.ggdc.net/maddison/maddison-project/data/mpd_2013-01.xlsx"),  # database_url
                     mysql_quote(""),  # data_retrieval_method

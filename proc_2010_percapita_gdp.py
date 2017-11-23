@@ -17,7 +17,7 @@ with open("horizontal-file_02-2010-percapita-gdp.csv", newline='') as f:
         for year in sorted(row):
             if year != "Region" and year and row[year].strip():
                 print("    " + ("" if first else ",") + "(" + ",".join([
-                    mysql_quote(row["Region"].strip()),  # region
+                    mysql_quote(region_normalized(row["Region"].strip())),  # region
                     mysql_string_date(year),  # odate
                     mysql_quote("http://www.ggdc.net/maddison/Historical_Statistics/horizontal-file_02-2010.xls"),  # database_url
                     mysql_quote(""),  # data_retrieval_method
