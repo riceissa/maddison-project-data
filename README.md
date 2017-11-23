@@ -21,6 +21,36 @@ make
 However, note that all the generated SQL files are already part of this
 repository, so re-generating them is not necessary to use them.
 
+## Crude check
+
+```bash
+declare -a arr=("'United States'" "'China'" "'Japan'" "'Germany'"
+"'United Kingdom'" "'France'" "'India'" "'Italy'" "'Brazil'" "'Canada'"
+"'South Korea'" "'Russia'" "'Australia'" "'Spain'" "'Mexico'" "'Indonesia'"
+"'Turkey'" "'Netherlands'" "'Switzerland'" "'Saudi Arabia'" "'Argentina'"
+"'Taiwan'" "'Sweden'" "'Poland'" "'Belgium'" "'Thailand'" "'Nigeria'" "'Austria'"
+"'Iran'" "'United Arab Emirates'" "'Norway'" "'Egypt'" "'Hong Kong'" "'Israel'"
+"'Denmark'" "'Philippines'" "'Singapore'" "'Malaysia'" "'South Africa'"
+"'Ireland'" "'Colombia'" "'Pakistan'" "'Chile'" "'Finland'" "'Venezuela'"
+"'Bangladesh'" "'Portugal'" "'Vietnam'" "'Peru'" "'Greece'" "'Czech Republic'"
+"'Romania'" "'New Zealand'" "'Iraq'" "'Algeria'" "'Qatar'" "'Kazakhstan'"
+"'Hungary'" "'Kuwait'" "'Morocco'" "'Puerto Rico'" "'Ecuador'" "'Angola'"
+"'Sudan'" "'Ukraine'" "'Slovakia'" "'Sri Lanka'" "'Syria'" "'Ethiopia'"
+"'Dominican Republic'" "'Kenya'" "'Guatemala'" "'Uzbekistan'" "'Myanmar'"
+"'Oman'" "'Luxembourg'" "'Costa Rica'" "'Panama'" "'Uruguay'" "'Bulgaria'"
+"'Lebanon'" "'Croatia'" "'Belarus'" "'Tanzania'" "'Macau'" "'Lithuania'"
+"'Democratic Republic of the Congo'" "'Jordan'" "'Serbia'" "'Azerbaijan'"
+"'Turkmenistan'" "'Ivory Coast'" "'Bolivia'" "'Libya'" "'Bahrain'"
+"'Cameroon'" "'Latvia'")
+for f in maddison-*.sql
+do
+    for i in "${arr[@]}"
+    do
+        grep -q "$i" $f || echo "$f: $i not found"
+    done
+done
+```
+
 ## Explanation of files
 
 Each `proc_*.py` script uses one CSV file to produce one SQL file.
