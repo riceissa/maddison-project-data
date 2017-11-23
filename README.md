@@ -1,5 +1,28 @@
 # maddison-project-data
 
+## To generate
+
+To generate the SQL files, the scripts in this repository require the
+[`devec_sql_common`](https://github.com/riceissa/devec_sql_common)
+Python package.  To install, run:
+
+```bash
+git clone https://github.com/riceissa/devec_sql_common
+cd devec_sql_common
+pip3 install -e .
+```
+
+Now it is possible to run:
+
+```bash
+make
+```
+
+However, note that all the generated SQL files are already part of this
+repository, so re-generating them is not necessary to use them.
+
+## Explanation of files
+
 Each `proc_*.py` script uses one CSV file to produce one SQL file.
 
 |Dataset|Script|CSV|SQL|Original spreadsheet|
@@ -27,6 +50,9 @@ CC0.
 Data subject to their own copyrights, or whatever.
 
 ## See also
+
+This repository is part of a series of repositories that deal with development
+datasets.  The others are:
 
 - [penn-world-table-data](https://github.com/riceissa/penn-world-table-data), a
   similar project for the Penn World Table that uses the same database schema
