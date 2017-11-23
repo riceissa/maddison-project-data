@@ -24,6 +24,7 @@ repository, so re-generating them is not necessary to use them.
 ## Crude check
 
 ```bash
+# List from https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal)
 declare -a arr=("'United States'" "'China'" "'Japan'" "'Germany'"
 "'United Kingdom'" "'France'" "'India'" "'Italy'" "'Brazil'" "'Canada'"
 "'South Korea'" "'Russia'" "'Australia'" "'Spain'" "'Mexico'" "'Indonesia'"
