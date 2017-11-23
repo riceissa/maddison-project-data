@@ -23,6 +23,14 @@ repository, so re-generating them is not necessary to use them.
 
 ## Crude check
 
+The following will loop through each SQL file and country to see if the country
+appears in the SQL file.  If the country does not appear, a message is printed.
+This is intended as a crude check to see that region name normalization is
+working.  In other words, if all the "bigger" countries are in the file, we can
+be pretty sure that they were successfully normalized.  In the outer for-loop,
+change `for f in maddison-*.sql` to use a different glob when working with
+other datasets (e.g. Penn World Table).
+
 ```bash
 # List from https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal)
 declare -a arr=("'United States'" "'China'" "'Japan'" "'Germany'"
