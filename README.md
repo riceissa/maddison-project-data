@@ -98,6 +98,8 @@ datasets.  The others are:
 - [world development indicators](https://github.com/riceissa/world-development-indicators)
 - [total-economy-database](https://github.com/riceissa/total-economy-database)
 - [fred-processing](https://github.com/riceissa/fred-processing)
+- [devec\_sql\_common](https://github.com/riceissa/devec_sql_common) contains
+  common functions for use when working with all datasets
 
 ## External links
 
