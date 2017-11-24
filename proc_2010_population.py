@@ -16,8 +16,13 @@ with open("horizontal-file_02-2010-population.csv", newline='') as f:
     for row in reader:
         for year in sorted(row):
             if year != "Region" and year and (row[year].strip() not in ["", "n.a."]):
+                region = row["Region"].strip()
+                if region == "Virgin Islands":
+                    region = "United States Virgin Islands"
+                else:
+                    region = region_normalized(region)
                 print("    " + ("" if first else ",") + "(" + ",".join([
-                    mysql_quote(region_normalized(row["Region"].strip())),  # region
+                    mysql_quote(region),  # region
                     mysql_string_date(year),  # odate
                     mysql_quote("http://www.ggdc.net/maddison/Historical_Statistics/horizontal-file_02-2010.xls"),  # database_url
                     mysql_quote(""),  # data_retrieval_method
