@@ -21,5 +21,6 @@ create table data (
     units varchar(200),
     value float(35,14),
     notes varchar(2000) DEFAULT NULL,
+    unique key `params_combination` (`region`,`metric`,`units`,`database_url`,`odate`),
     index `region`(`region`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15239276 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
