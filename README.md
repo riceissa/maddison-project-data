@@ -82,6 +82,10 @@ Some resources:
 - <https://dev.mysql.com/doc/refman/5.7/en/insert-optimization.html>
 - <https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_bulk_insert_buffer_size>
 - <https://dev.mysql.com/doc/refman/5.6/en/optimizing-innodb-diskio.html>
+- <http://derwiki.tumblr.com/post/24490758395/loading-half-a-billion-rows-into-mysql>
+  (uses load data infile for a bulk import)
+- <https://dbahire.com/testing-the-fastest-way-to-import-a-table-into-mysql-and-some-interesting-5-7-performance-results/>
+- <https://stackoverflow.com/questions/2463602/mysql-load-data-infile-acceleration/2504211#2504211>
 
 To address specific points:
 
