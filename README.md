@@ -1,5 +1,12 @@
 # maddison-project-data
 
+This repository contains the Maddison Project data, processing scripts, and output files (SQL files that can be imported into a MySQL databse).
+
+As the first repository created for the Devec/Demography data portal project,
+this repository additionally contains information relevant for all datasets:
+the schema file used for all datasets and information on sanity checks and bulk
+importing.
+
 ## To generate
 
 To generate the SQL files, the scripts in this repository require the
