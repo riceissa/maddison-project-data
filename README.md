@@ -60,6 +60,34 @@ do
 done
 ```
 
+## Tips for inserting a large amount of data
+
+The Devec datasets import a large amount of data into MySQL. This process
+can take a lot of time especially if changes need to be made to the data
+(as when region name or metric name normalization is being done). It would
+be nice to speed this up.
+
+Some resources:
+
+- <https://dev.mysql.com/doc/refman/5.7/en/optimizing-innodb-bulk-data-loading.html>
+- <https://stackoverflow.com/questions/22164070/mysql-insert-20k-rows-in-single-insert>
+- <https://www.google.com/search?q=mysql%20disable%20consistency%20checking>
+
+To address specific points:
+
+- Bunching together many values in a single `insert` statement. We already do this.
+  We currently insert 5000 values per `insert` statement. Doing more than this
+  might be possible, but could run into problems because MySQL has a
+  [`max_allowed_packet`](https://stackoverflow.com/questions/3536103/mysql-how-many-rows-can-i-insert-in-one-single-insert-statement)
+  size (not sure if increasing that could lead to problems).
+- Number of connections. Not sure about this. I think we currently have a single
+  connection per dataset we are importing. My intuition is that decreasing this
+  wouldn't help much, since it is already pretty small. I don't think loading
+  up all the datasets in one `mysql` command by `cat`ing all the SQL files will
+  suddenly speed everything up.
+- Delaying index updates. Not sure about this.
+- Delaying consistency checks. Not sure about this.
+
 ## Explanation of files
 
 Each `proc_*.py` script uses one CSV file to produce one SQL file.
