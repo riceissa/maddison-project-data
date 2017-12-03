@@ -89,6 +89,9 @@ To address specific points:
   might be possible, but could run into problems because MySQL has a
   [`max_allowed_packet`](https://stackoverflow.com/questions/3536103/mysql-how-many-rows-can-i-insert-in-one-single-insert-statement)
   size (not sure if increasing that could lead to problems).
+  According to [this answer](https://stackoverflow.com/questions/1793169/which-is-faster-multiple-single-inserts-or-one-multiple-row-insert/10276827#10276827),
+  increasing this beyond 50 rows at a time might not help that much, so I think
+  we are good here.
 - Number of connections. Not sure about this. I think we currently have a single
   connection per dataset we are importing. My intuition is that decreasing this
   wouldn't help much, since it is already pretty small. I don't think loading
@@ -102,6 +105,16 @@ To address specific points:
   `innodb_log_file_size` (from
   [this page](https://www.percona.com/blog/2007/05/24/predicting-how-long-data-load-would-take/))
 - `LOAD DATA INFILE`. Not sure about this.
+
+Listing out all the insert options? From [this answer](https://stackoverflow.com/questions/11389449/performance-of-mysql-insert-statements-in-java-batch-mode-prepared-statements-v/11390363#11390363):
+
+- Single inserts (prepare the insert statement during each iteration)
+- Batched inserts (prepare the insert statement once, but add each row separately to the batch; uses parametrized insertion of the client language)
+- Manual bulk inserts (make a long string with values, then insert at once; I think this is what we do now with the large SQL files)
+- Prepared bulk inserts (?? not sure how this one differs from manual bulk inserts)
+- Load data `LOAD DATA INFILE` (load data from a CSV/TSV file; this involves less parsing compared to bulk inserts, so is faster?)
+
+I'm not sure how "batched" and "bulk" are different.
 
 ## Explanation of files
 
