@@ -81,6 +81,7 @@ Some resources:
 - <https://www.google.com/search?q=mysql%20disable%20consistency%20checking>
 - <https://dev.mysql.com/doc/refman/5.7/en/insert-optimization.html>
 - <https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_bulk_insert_buffer_size>
+- <https://dev.mysql.com/doc/refman/5.6/en/optimizing-innodb-diskio.html>
 
 To address specific points:
 
@@ -103,7 +104,9 @@ To address specific points:
 - `bulk_insert_buffer_size`. Not sure about this.
 - `key_buffer_size` (only for MyISAM?), `innodb_buffer_pool_size`,
   `innodb_log_file_size` (from
-  [this page](https://www.percona.com/blog/2007/05/24/predicting-how-long-data-load-would-take/))
+  [this page](https://www.percona.com/blog/2007/05/24/predicting-how-long-data-load-would-take/)), `innodb_change_buffering` (from [this answer](https://dba.stackexchange.com/questions/20862/mysql-load-from-infile-stuck-waiting-on-hard-drive/20864#20864)),
+  `innodb_io_capacity` (from [this answer](https://dba.stackexchange.com/a/21680)).
+  Even more variables for InnoDB are listed in [this post](https://nbsoftsolutions.com/blog/optimizing-innodb-bulk-insert).
 - `LOAD DATA INFILE`. Not sure about this.
 
 Listing out all the insert options? From [this answer](https://stackoverflow.com/questions/11389449/performance-of-mysql-insert-statements-in-java-batch-mode-prepared-statements-v/11390363#11390363):
@@ -115,6 +118,12 @@ Listing out all the insert options? From [this answer](https://stackoverflow.com
 - Load data `LOAD DATA INFILE` (load data from a CSV/TSV file; this involves less parsing compared to bulk inserts, so is faster?)
 
 I'm not sure how "batched" and "bulk" are different.
+
+[This post](http://brian.pontarelli.com/2011/06/21/jdbc-batch-vs-multi-row-inserts/)
+tests batch vs single multi-row insert and finds the latter to be faster.
+
+The general idea I'm getting is that time taken is: single inserts > batch inserts >
+bulk inserts > load data infile.
 
 ## Explanation of files
 
