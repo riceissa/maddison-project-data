@@ -79,6 +79,8 @@ Some resources:
 - <https://dev.mysql.com/doc/refman/5.7/en/optimizing-innodb-bulk-data-loading.html>
 - <https://stackoverflow.com/questions/22164070/mysql-insert-20k-rows-in-single-insert>
 - <https://www.google.com/search?q=mysql%20disable%20consistency%20checking>
+- <https://dev.mysql.com/doc/refman/5.7/en/insert-optimization.html>
+- <https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_bulk_insert_buffer_size>
 
 To address specific points:
 
@@ -93,7 +95,13 @@ To address specific points:
   up all the datasets in one `mysql` command by `cat`ing all the SQL files will
   suddenly speed everything up.
 - Delaying index updates. Not sure about this.
-- Delaying consistency checks. Not sure about this.
+- Delaying consistency checks. Not sure about this. We don't use any foreign keys
+  so checking for that is unnecessary.
+- `bulk_insert_buffer_size`. Not sure about this.
+- `key_buffer_size` (only for MyISAM?), `innodb_buffer_pool_size`,
+  `innodb_log_file_size` (from
+  [this page](https://www.percona.com/blog/2007/05/24/predicting-how-long-data-load-would-take/))
+- `LOAD DATA INFILE`. Not sure about this.
 
 ## Explanation of files
 
