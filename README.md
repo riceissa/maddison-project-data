@@ -106,7 +106,7 @@ To address specific points:
 - Delaying consistency checks. Not sure about this. We don't use any foreign keys
   so checking for that is unnecessary.
 - `bulk_insert_buffer_size`. Not sure about this.
-- `key_buffer_size` (only for MyISAM?), `innodb_buffer_pool_size` ("Specifies the size of the buffer pool. If the buffer pool is small and you have sufficient memory, making the buffer pool larger can improve performance by reducing the amount of disk I/O needed as queries access InnoDB tables." [source](https://dev.mysql.com/doc/refman/5.7/en/innodb-buffer-pool.html "“14.6.3.1 The InnoDB Buffer Pool § InnoDB Buffer Pool Configuration Options”.") so probably not useful for reading in data),
+- `innodb_buffer_pool_size` ("Specifies the size of the buffer pool. If the buffer pool is small and you have sufficient memory, making the buffer pool larger can improve performance by reducing the amount of disk I/O needed as queries access InnoDB tables." [source](https://dev.mysql.com/doc/refman/5.7/en/innodb-buffer-pool.html "“14.6.3.1 The InnoDB Buffer Pool § InnoDB Buffer Pool Configuration Options”.") so probably not useful for reading in data),
   `innodb_log_file_size` (from
   [this page](https://www.percona.com/blog/2007/05/24/predicting-how-long-data-load-would-take/)), `innodb_change_buffering` (from [this answer](https://dba.stackexchange.com/questions/20862/mysql-load-from-infile-stuck-waiting-on-hard-drive/20864#20864)),
   `innodb_io_capacity` (from [this answer](https://dba.stackexchange.com/a/21680)).
