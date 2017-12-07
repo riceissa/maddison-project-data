@@ -196,8 +196,6 @@ Listing out all the insert options? From [this answer](https://stackoverflow.com
 - Prepared bulk inserts (?? not sure how this one differs from manual bulk inserts)
 - Load data `LOAD DATA INFILE` (load data from a CSV/TSV file; this involves less parsing compared to bulk inserts, so is faster?)
 
-I'm not sure how "batched" and "bulk" are different.
-
 [This post](http://brian.pontarelli.com/2011/06/21/jdbc-batch-vs-multi-row-inserts/)
 tests batch vs single multi-row insert and finds the latter to be faster.
 
