@@ -74,6 +74,9 @@ can take a lot of time especially if changes need to be made to the data
 (as when region name or metric name normalization is being done). It would
 be nice to speed this up.
 
+There are a couple of MyISAM-only options for speeding up large insertions, but
+since we are using InnoDB, we can ignore these.
+
 Some resources:
 
 - <https://dev.mysql.com/doc/refman/5.7/en/optimizing-innodb-bulk-data-loading.html>
