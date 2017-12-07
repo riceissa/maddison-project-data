@@ -100,6 +100,17 @@ Some resources:
   (Note that at this time, uniqueness was checked in Python already so the
   schema did not include a `unique` clause.)
 
+  With:
+
+  ```mysql
+  set autocommit = 0;
+  # insert lines here
+  commit;
+  ```
+
+  importing TED took 1m52.774s the first time and 1m38.765s the second time, so
+  this seems to be an actual improvement.
+
 To address specific points:
 
 - Bunching together many values in a single `insert` statement. We already do this.
