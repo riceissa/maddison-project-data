@@ -112,7 +112,11 @@ To address specific points:
   [this page](https://www.percona.com/blog/2007/05/24/predicting-how-long-data-load-would-take/)), `innodb_change_buffering` (from [this answer](https://dba.stackexchange.com/questions/20862/mysql-load-from-infile-stuck-waiting-on-hard-drive/20864#20864)),
   `innodb_io_capacity` (from [this answer](https://dba.stackexchange.com/a/21680)).
   Even more variables for InnoDB are listed in [this post](https://nbsoftsolutions.com/blog/optimizing-innodb-bulk-insert).
-- `LOAD DATA INFILE`. Not sure about this.
+- `LOAD DATA INFILE`. Not totally sure about this. Due to the `secure_file_priv`
+  option, I think doing this would require moving all generated TSV files to
+  `/var/lib/mysql-files/` (run `select @@secure_file_pri;` to see where the
+  directory is on each system).  And since that directory is owned by the mysql
+  user, we also have to deal with system permissions.
 
 Listing out all the insert options? From [this answer](https://stackoverflow.com/questions/11389449/performance-of-mysql-insert-statements-in-java-batch-mode-prepared-statements-v/11390363#11390363):
 
