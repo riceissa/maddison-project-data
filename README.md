@@ -128,6 +128,7 @@ Some resources:
   ```
 
   importing took 1m46.811s the first time and 1m46.764s the second time.
+  (The `start transaction` was suggested in [this answer](https://stackoverflow.com/a/2950764/3422337).)
 
 To address specific points:
 
