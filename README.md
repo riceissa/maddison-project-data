@@ -138,6 +138,12 @@ Some resources:
   > usually want to retrieve the stored data again so that you need indexes to
   > improve query speed. Even write-only log tables often have a primary key
   > and a respective index.
+  >
+  > Nevertheless, the performance without indexes is so good that it can make
+  > sense to temporarily drop all indexes while loading large amounts of
+  > data—provided the indexes are not needed by any other SQL statements in the
+  > meantime. This can unleash a dramatic speed-up which is visible in the
+  > chart and is, in fact, a common practice in data warehouses.
 
   But doesn't adding in the index later with `alter table` cost a lot of time
   as well?  Yes, but it's faster anyway. With:
