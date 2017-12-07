@@ -4,6 +4,8 @@ import csv
 
 from devec_sql_common import *
 
+print_insert_header()
+
 
 print("""insert into data(region, odate, database_url,
          data_retrieval_method, metric, units, value, notes) values""")
@@ -33,3 +35,6 @@ with open("horizontal-file_02-2010-population-growth.csv", newline='') as f:
                 ]) + ")")
                 first = False
     print(";")
+
+
+print_insert_footer()
