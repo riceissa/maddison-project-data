@@ -21,7 +21,7 @@ with open("horizontal-file_02-2010-population.csv", newline='') as f:
                     region = "United States Virgin Islands"
                 else:
                     region = region_normalized(region)
-                print("    " + ("" if first else ",") + "(" + ",".join([
+                print("    " + ("" if first else ",") + "(" + uniq_join([
                     mysql_quote(region),  # region
                     mysql_string_date(year),  # odate
                     mysql_quote("http://www.ggdc.net/maddison/Historical_Statistics/horizontal-file_02-2010.xls"),  # database_url

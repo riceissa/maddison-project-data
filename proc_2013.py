@@ -21,7 +21,7 @@ with open("mpd_2013-01.csv", newline='') as f:
                     r = "United States Virgin Islands"
                 else:
                     r = region_normalized(r)
-                print("    " + ("" if first else ",") + "(" + ",".join([
+                print("    " + ("" if first else ",") + "(" + uniq_join([
                     mysql_quote(r),  # region
                     mysql_string_date(row["Year"]),  # odate
                     mysql_quote("http://www.ggdc.net/maddison/maddison-project/data/mpd_2013-01.xlsx"),  # database_url
