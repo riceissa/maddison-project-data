@@ -88,6 +88,17 @@ Some resources:
   (uses load data infile for a bulk import)
 - <https://dbahire.com/testing-the-fastest-way-to-import-a-table-into-mysql-and-some-interesting-5-7-performance-results/>
 - <https://stackoverflow.com/questions/2463602/mysql-load-data-infile-acceleration/2504211#2504211>
+  With the following options:
+
+      set unique_checks = 0;
+      set foreign_key_checks = 0;
+      set sql_log_bin = 0;
+
+  importing TED took 2m18.889s the first time and 1m48.951s the second time.
+  Without these options, the import times were 2m1.650s the first time and
+  1m53.965s the second time. So I don't think these options really matter much.
+  (Note that at this time, uniqueness was checked in Python already so the
+  schema did not include a `unique` clause.)
 
 To address specific points:
 
