@@ -130,6 +130,18 @@ Some resources:
   importing took 1m46.811s the first time and 1m46.764s the second time.
   (The `start transaction` was suggested in [this answer](https://stackoverflow.com/a/2950764/3422337).)
 
+- From ["Insert"](http://use-the-index-luke.com/sql/dml/insert):
+
+  > Considering `insert` statements only, it would be best to avoid indexes
+  > entirely—this yields by far the best `insert` performance. However tables
+  > without indexes are rather unrealistic in real world applications. You
+  > usually want to retrieve the stored data again so that you need indexes to
+  > improve query speed. Even write-only log tables often have a primary key
+  > and a respective index.
+
+  But doesn't adding in the index later with `alter table` cost a lot of time
+  as well?
+
 To address specific points:
 
 - Bunching together many values in a single `insert` statement. We already do this.
