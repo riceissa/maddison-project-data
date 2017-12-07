@@ -116,7 +116,7 @@ To address specific points:
   option, I think doing this would require moving all generated TSV files to
   `/var/lib/mysql-files/` (run `select @@secure_file_pri;` to see where the
   directory is on each system).  And since that directory is owned by the mysql
-  user, we also have to deal with system permissions.
+  user, we also have to deal with the file system permissions.
 
 Listing out all the insert options? From [this answer](https://stackoverflow.com/questions/11389449/performance-of-mysql-insert-statements-in-java-batch-mode-prepared-statements-v/11390363#11390363):
 
