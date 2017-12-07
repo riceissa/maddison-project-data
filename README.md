@@ -140,7 +140,16 @@ Some resources:
   > and a respective index.
 
   But doesn't adding in the index later with `alter table` cost a lot of time
-  as well?
+  as well?  Yes, but it's faster anyway. With:
+
+  ```mysql
+  truncate `data`;
+  set autocommit = 0;
+  # insert statements here
+  alter table `data` add index `region`(`region`);
+  ```
+
+  The first time was 1m12.989s and the second time was 1m13.651s.
 
 To address specific points:
 
