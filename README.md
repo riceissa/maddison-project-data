@@ -111,6 +111,24 @@ Some resources:
   importing TED took 1m52.774s the first time and 1m38.765s the second time, so
   this seems to be an actual improvement.
 
+  With:
+
+  ```mysql
+  set unique_checks = 0;
+  set foreign_key_checks = 0;
+  set sql_log_bin = 0;
+  set autocommit = 0;
+
+  start transaction;
+
+  # insert statements here
+
+  commit;
+  set autocommit = 1;
+  ```
+
+  importing took 1m46.811s the first time and 1m46.764s the second time.
+
 To address specific points:
 
 - Bunching together many values in a single `insert` statement. We already do this.
