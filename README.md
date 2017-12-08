@@ -80,6 +80,16 @@ since we are using InnoDB, we can ignore these.
 Some resources:
 
 - <https://dev.mysql.com/doc/refman/5.7/en/optimizing-innodb-bulk-data-loading.html>
+
+  "When doing bulk inserts into tables with auto-increment columns, set
+  `innodb_autoinc_lock_mode` to 2 instead of the default value 1":
+  This actually made the data loading slower; 1m28s–1m38s instead of
+  1m22s–1m31s.  Reading into this option, it might only be useful when the
+  number of insert values isn't known in advance?  In our case, we use a
+  "simple insert" (as [explained here](https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html))
+  for all our insertions, so maybe this option doesn't help.  I'm not sure why
+  it would make things *slower* though.
+
 - <https://stackoverflow.com/questions/22164070/mysql-insert-20k-rows-in-single-insert>
 - <https://www.google.com/search?q=mysql%20disable%20consistency%20checking>
 - <https://dev.mysql.com/doc/refman/5.7/en/insert-optimization.html>
