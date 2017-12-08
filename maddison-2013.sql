@@ -1,3 +1,4 @@
+set autocommit = 0;
 insert into data(region, odate, database_url,
          data_retrieval_method, metric, units, value, notes) values
     ('Center-North Italy','00010000','http://www.ggdc.net/maddison/maddison-project/data/mpd_2013-01.xlsx',NULL,'GDP per capita','1990 international dollar',800.0,NULL)
@@ -14935,3 +14936,5 @@ insert into data(region, odate, database_url,
     ,('Zambia','20100000','http://www.ggdc.net/maddison/maddison-project/data/mpd_2013-01.xlsx',NULL,'GDP per capita','1990 international dollar',795.0,NULL)
     ,('Zimbabwe','20100000','http://www.ggdc.net/maddison/maddison-project/data/mpd_2013-01.xlsx',NULL,'GDP per capita','1990 international dollar',750.0,NULL)
 ;
+commit;
+set autocommit = 1;

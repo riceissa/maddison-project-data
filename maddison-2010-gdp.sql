@@ -1,3 +1,4 @@
+set autocommit = 0;
 insert into data(region, odate, database_url,
          data_retrieval_method, metric, units, value, notes) values
     ('Austria','00010000','http://www.ggdc.net/maddison/Historical_Statistics/horizontal-file_02-2010.xls',NULL,'GDP','1990 international dollar',213000000.0,NULL)
@@ -13834,3 +13835,5 @@ insert into data(region, odate, database_url,
     ,('World Total','20070000','http://www.ggdc.net/maddison/Historical_Statistics/horizontal-file_02-2010.xls',NULL,'GDP','1990 international dollar',49411106000000.0,NULL)
     ,('World Total','20080000','http://www.ggdc.net/maddison/Historical_Statistics/horizontal-file_02-2010.xls',NULL,'GDP','1990 international dollar',50973935000000.0,NULL)
 ;
+commit;
+set autocommit = 1;
