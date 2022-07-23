@@ -1,15 +1,18 @@
+MYSQL_ARGS=
+DATABASE=devecondata
+
 .PHONY: all
 all: maddison-2010-gdp.sql maddison-2010-gdp-growth.sql maddison-2010-percapita-gdp.sql maddison-2010-percapita-gdp-growth.sql maddison-2010-population.sql maddison-2010-population-growth.sql maddison-2013.sql
 
 .PHONY: read
 read:
-	mysql devecondata < maddison-2010-gdp.sql
-	mysql devecondata < maddison-2010-gdp-growth.sql
-	mysql devecondata < maddison-2010-percapita-gdp.sql
-	mysql devecondata < maddison-2010-percapita-gdp-growth.sql
-	mysql devecondata < maddison-2010-population.sql
-	mysql devecondata < maddison-2010-population-growth.sql
-	mysql devecondata < maddison-2013.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < maddison-2010-gdp.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < maddison-2010-gdp-growth.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < maddison-2010-percapita-gdp.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < maddison-2010-percapita-gdp-growth.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < maddison-2010-population.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < maddison-2010-population-growth.sql
+	mysql $(MYSQL_ARGS) $(DATABASE) < maddison-2013.sql
 
 maddison-2010-gdp.sql:
 	./proc_2010_gdp.py > maddison-2010-gdp.sql
