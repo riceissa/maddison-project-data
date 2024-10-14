@@ -22,4 +22,4 @@ create table data (
     value float(35,14),
     notes varchar(2000) DEFAULT NULL,
     key region(region)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
