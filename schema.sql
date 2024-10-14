@@ -20,5 +20,6 @@ create table data (
     metric varchar(200),
     units varchar(200),
     value float(35,14),
-    notes varchar(2000) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15239276 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+    notes varchar(2000) DEFAULT NULL,
+    key region(region)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
